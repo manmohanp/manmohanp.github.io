@@ -13,11 +13,12 @@ theme_settings:
 
   # Header and footer text
   header_text: >
-     <p>~./Interest areas including technology, astronomy and space science, future tech, photography...</p>
+     <p><br/>{Technology, astronomy and space science, future tech, photography...}<br/><br/></p>
   header_text_feature_image: assets/img/neural-network-banner.jpg
   footer_text: >
-   {All content are Copyright 2017}
-   {Any reference to external sources are Copyright of respective sites}
+   All content Copyright &copy; 2017.
+   <br/>
+   Any reference to external sources are Copyright of respective web sites and authors.
 
   # Icons
   rss: false
@@ -29,7 +30,7 @@ theme_settings:
   flickr:
   gitlab:
   github:
-  google_plus:
+  google_plus: manmohanpanda
   instagram:
   linkedin:  https://www.linkedin.com/in/manmohan-panda-995a925/
   pinterest:

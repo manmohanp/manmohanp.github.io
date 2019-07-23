@@ -9,11 +9,11 @@ theme_settings:
   avatar: assets/img/me.png
   favicon: assets/favicon.ico
   gravatar: # Email MD5 hash
-  description: "On technology, astronomy and space science, future tech, photography..." # used by search engines
+  description: "Engineering, science and future tech..." # used by search engines
 
   # Header and footer text
   header_text: >
-     <p><br/>{Technology, astronomy and space science, future tech, photography...}<br/><br/></p>
+     <p><br/>{Engineering, science and future tech...}<br/><br/></p>
   header_text_feature_image: assets/img/neural-network-banner.jpg
   footer_text: >
    All content Copyright &copy; 2017.

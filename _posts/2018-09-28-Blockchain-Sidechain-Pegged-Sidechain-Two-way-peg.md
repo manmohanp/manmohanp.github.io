@@ -45,4 +45,4 @@ Some concerns:
 
 My other articles on Blockchain -
 
-[Blockchain and Analytics: Unlocking New Billing Opportunities for CSPs] (https://www.theblockchaindomain.info/topics/apps-and-use-cases/articles/438937-blockcha-and-analytics-unlocking-new-billing-opportunities-csps.htm)
+[Blockchain and Analytics: Unlocking New Billing Opportunities for CSPs](https://www.theblockchaindomain.info/topics/apps-and-use-cases/articles/438937-blockcha-and-analytics-unlocking-new-billing-opportunities-csps.htm)

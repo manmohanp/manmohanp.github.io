@@ -1,11 +1,11 @@
 ---
 layout: post
-title: Kubernets with docker-for-desktop and Dashboard on Mac
+title: Kubernets with Docker for Desktop and Dashboard on Mac
 category: technology
 
 ---
 
-If you are looking to get your dev setup to use Dockers and run on Kubernetes then Docker have a much simpler option and in fact ready to use Kubernetes if you are on **Mac 18.06.0-ce-mac70 CE and higher** by using [Desktop Docker or Docker for Desktop](https://www.docker.com/products/docker-desktop).Simply enable Kubernetes from the Docker desktop menu.
+If you are looking to get your dev setup to use Dockers and run on Kubernetes then Docker have a much simpler option and in fact ready to use Kubernetes if you are on **Docker Desktop 18.06.* or higher** by using [Desktop Docker or Docker for Desktop](https://www.docker.com/products/docker-desktop).Simply enable Kubernetes from the Docker desktop menu.
 
 And if you want Kubernetes to be your default stack for deployment then you can enable it as below;
 

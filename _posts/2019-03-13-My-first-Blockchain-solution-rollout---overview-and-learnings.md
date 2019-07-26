@@ -43,6 +43,6 @@ Looking forward to the next big thing & challenge!! Thanks.
 My other articles on Blockchain -
 
 [Blockchain and Analytics: Unlocking New Billing Opportunities for CSPs](https://www.theblockchaindomain.info/topics/apps-and-use-cases/articles/438937-blockcha-and-analytics-unlocking-new-billing-opportunities-csps.htm)
---
+
 [Blockchain, Sidechain, Pegged Sidechain, Two-way peg](https://manmohanp.github.io/technology/2018/09/28/Blockchain-Sidechain-Pegged-Sidechain-Two-way-peg.html)
---
+

@@ -5,13 +5,13 @@ category: technology
 
 ---
 
-If you are looking to get your dev setup to use Dockers and run on Kubernetes then Docker have a much simpler option and in fact ready to use Kubernetes option if you are on **Mac 18.06.0-ce-mac70 CE and higher**. Simply enable Kubernetes from the Docker desktop menu.
+If you are looking to get your dev setup to use Dockers and run on Kubernetes then Docker have a much simpler option and in fact ready to use Kubernetes if you are on **Mac 18.06.0-ce-mac70 CE and higher** by using [Desktop Docker or Docker for Desktop](https://www.docker.com/products/docker-desktop).Simply enable Kubernetes from the Docker desktop menu.
 
 And if you want Kubernetes to be your default stack for deployment then you can enable it as below;
 
 ![Enable Kubernets](https://manmohanp.github.io/assets/img/docker-for-desktop-enable-kube.png)
 
-Assuming you have Kubectl installed separately, then you will be able to confirm that the Kubernetes cluster is setup by running the following;
+Assuming you have [Kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/) installed separately, then you will be able to confirm that the Kubernetes cluster is setup by running the following;
 
 ```bash
 $ kubectl config current-context
@@ -254,5 +254,7 @@ And we can see that the service is deployed successfully.
 And that's it!!
 
 Offcourse there are many other things I've not outlined fully and many other ways this can be done.
+
+And I am not fully sure (as have not tried) but I am guessing Docker Desktop (or Docker for Desktop) instructions should be similar for Windows platform too.
 
 Good luck!!

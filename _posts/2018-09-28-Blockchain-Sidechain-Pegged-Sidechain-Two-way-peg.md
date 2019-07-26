@@ -46,3 +46,4 @@ Some concerns:
 My other articles on Blockchain -
 
 [Blockchain and Analytics: Unlocking New Billing Opportunities for CSPs](https://www.theblockchaindomain.info/topics/apps-and-use-cases/articles/438937-blockcha-and-analytics-unlocking-new-billing-opportunities-csps.htm)
+[My First Blockchain Rollout](https://manmohanp.github.io/technology/2019/03/13/My-first-Blockchain-solution-rollout-overview-and-learnings.html)

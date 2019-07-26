@@ -9,14 +9,14 @@ theme_settings:
   avatar: assets/img/me.png
   favicon: assets/favicon.ico
   gravatar: # Email MD5 hash
-  description: "Engineering, science and future tech..." # used by search engines
+  description: "Engineering, Science and Future Tech" # used by search engines
 
   # Header and footer text
   header_text: >
-     <p><br/>{Engineering, science and future tech...}<br/><br/></p>
+     <p><br/>{Engineering, Science, Future Tech}<br/><br/></p>
   header_text_feature_image: assets/img/neural-network-banner.jpg
   footer_text: >
-   All content Copyright &copy; 2017.
+   All content Copyright &copy; 2019.
    <br/>
    Any reference to external sources are Copyright of respective web sites and authors.
 

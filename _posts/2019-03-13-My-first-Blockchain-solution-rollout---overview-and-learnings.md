@@ -39,3 +39,8 @@ We learnt a lot part of this, sometimes it was hard to get to a solution to nume
 Looking forward to the next big thing & challenge!! Thanks.
 
 *Note: logos and images used belongs to said organisation, this is used purely for knowledge sharing purpose.*
+
+My other articles on Blockchain -
+
+[Blockchain and Analytics: Unlocking New Billing Opportunities for CSPs](https://www.theblockchaindomain.info/topics/apps-and-use-cases/articles/438937-blockcha-and-analytics-unlocking-new-billing-opportunities-csps.htm)
+[Blockchain, Sidechain, Pegged Sidechain, Two-way peg](https://manmohanp.github.io/technology/2018/09/28/Blockchain-Sidechain-Pegged-Sidechain-Two-way-peg.html)

@@ -246,6 +246,9 @@ accountsapi: Ready              [pod status: 1/1 ready, 0/1 pending, 0/1 failed]
 Stack accountsapi is stable and running
 
 ```
+I've used samples from here;
+
+[Microservices samples](https://github.com/manmohanp/microservices-demos/tree/master/spring-cloud-consul)
 
 And we can see that the service is deployed successfully.
 

@@ -3,7 +3,7 @@ layout: post
 title: Kubernets with Docker for Desktop and Dashboard on Mac
 subtitle: 4 min read
 category: technology
-
+tags: [Kubernetes, Docker, Microservice, Discovery]
 ---
 
 ![Docker Desktop](https://manmohanp.github.io/assets/img/docker.png)

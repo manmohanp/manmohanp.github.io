@@ -7,7 +7,7 @@ hide: true
 
 ---
 
-<img src="/Users/manamohanpanda/git/manmohanp/manmohanp.github.io/assets/img/opencv.png" alt="OpenCV" width="150" height="150"/> <img src="https://manmohanp.github.io/assets/img/yolo.png" alt="OpenCV" width="150" height="150"/>
+<img src="https://manmohanp.github.io/assets/img/opencv.png" alt="OpenCV" width="150" height="150"/> <img src="https://manmohanp.github.io/assets/img/yolo.png" alt="OpenCV" width="150" height="150"/>
 
 **You only look once** ([YOLO](https://pjreddie.com/darknet/yolo/)) is a state-of-the-art, real-time object detection system.
 

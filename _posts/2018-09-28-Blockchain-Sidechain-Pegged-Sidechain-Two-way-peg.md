@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Blockchain, Sidechain, Pegged Sidechain, Two-way peg
-subtitle: - 2 minute read
+subtitle: 2 min read
 category: technology
 
 

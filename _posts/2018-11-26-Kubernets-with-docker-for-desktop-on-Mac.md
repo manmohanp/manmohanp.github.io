@@ -6,7 +6,7 @@ category: technology
 tags: [Kubernetes, Docker, Microservice, Discovery]
 ---
 
-<img src="https://manmohanp.github.io/assets/img/docker.png" alt="Kubernetes" width="200" height="200"/>
+<img src="https://manmohanp.github.io/assets/img/docker.png" alt="Kubernetes" width="400" height="250"/>
 
 If you are looking to get your dev setup to use Dockers and run on Kubernetes then Docker have a much simpler option and in fact ready to use Kubernetes if you are on **Docker Desktop 18.06.* or higher** by using [Desktop Docker or Docker for Desktop](https://www.docker.com/products/docker-desktop).Simply enable Kubernetes from the Docker desktop menu.
 

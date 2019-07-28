@@ -1,7 +1,7 @@
 ---
 layout: post
 title: My first Blockchain solution rollout - overview and learnings
-subtitle: 5 minute read
+subtitle: - 5 minute read
 category: technology
 
 ---

@@ -30,7 +30,7 @@ I am using Python3 though have earlier have used OpenCV with Python2 versions.
 
 Good intro to OpenCV there on https://docs.opencv.org/master/d9/df8/tutorial_root.html
 
-[Adrian Rosebrock](https://www.pyimagesearch.com/author/adrian/) put a good step by step guide on his blog [pip install opencv](https://www.pyimagesearch.com/2018/09/19/pip-install-opencv/)
+[Adrian Rosebrock](https://www.pyimagesearch.com/author/adrian/) published a detailed step by step guide on his blog [pip install opencv](https://www.pyimagesearch.com/2018/09/19/pip-install-opencv/)
 
 Once you have installed Python and OpenCV, you should see below;
 
@@ -53,14 +53,11 @@ Type "help", "copyright", "credits" or "license" for more information.
 
 Create a project directory e.g. yolo-realtime-object-detection and download the following files to the directory.
 
-- Pre-trained network’s weights (this is ~250mb in size)
-  yolov3.weights - [https://pjreddie.com/media/files/yolov3.weights](https://pjreddie.com/media/files/yolov3.weights)
+- Pre-trained network’s weights (this is ~250mb in size). yolov3.weights - [https://pjreddie.com/media/files/yolov3.weights](https://pjreddie.com/media/files/yolov3.weights)
 
-- Network configuration
-  yolov3.cfg - [https://github.com/pjreddie/darknet/blob/master/cfg/yolov3.cfg?raw=true](https://github.com/pjreddie/darknet/blob/master/cfg/yolov3.cfg?raw=true)
+- Network configuration. yolov3.cfg - [https://github.com/pjreddie/darknet/blob/master/cfg/yolov3.cfg?raw=true](https://github.com/pjreddie/darknet/blob/master/cfg/yolov3.cfg?raw=true)
 
-- Names from COCO dataset
-  coco.names - [https://github.com/pjreddie/darknet/blob/master/data/coco.names?raw=true](https://github.com/pjreddie/darknet/blob/master/data/coco.names?raw=true)
+- Names from COCO dataset. coco.names - [https://github.com/pjreddie/darknet/blob/master/data/coco.names?raw=true](https://github.com/pjreddie/darknet/blob/master/data/coco.names?raw=true)
 
 ### Object detection
 

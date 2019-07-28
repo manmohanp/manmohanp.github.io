@@ -53,14 +53,14 @@ Type "help", "copyright", "credits" or "license" for more information.
 
 Create a project directory e.g. yolo-realtime-object-detection and download the following files to the directory.
 
-* Pre-trained network’s weights (this is ~250mb in size)
-  yolov3.weights - https://pjreddie.com/media/files/yolov3.weights
+- Pre-trained network’s weights (this is ~250mb in size)
+  yolov3.weights - [https://pjreddie.com/media/files/yolov3.weights](https://pjreddie.com/media/files/yolov3.weights)
 
-* Network configuration
-  yolov3.cfg - https://github.com/pjreddie/darknet/blob/master/cfg/yolov3.cfg?raw=true
+- Network configuration
+  yolov3.cfg - [https://github.com/pjreddie/darknet/blob/master/cfg/yolov3.cfg?raw=true](https://github.com/pjreddie/darknet/blob/master/cfg/yolov3.cfg?raw=true)
 
-* Names from COCO dataset
-  coco.names - https://github.com/pjreddie/darknet/blob/master/data/coco.names?raw=true
+- Names from COCO dataset
+  coco.names - [https://github.com/pjreddie/darknet/blob/master/data/coco.names?raw=true](https://github.com/pjreddie/darknet/blob/master/data/coco.names?raw=true)
 
 ### Object detection
 

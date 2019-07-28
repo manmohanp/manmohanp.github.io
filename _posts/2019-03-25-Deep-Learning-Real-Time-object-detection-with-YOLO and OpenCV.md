@@ -40,7 +40,7 @@ cv
 dl4cv
 $ workon cv
 (cv) $ python
-Python 3.7.4 (default, Jul  9 2019, 18:13:23) 
+Python 3.7.4 (default, Mar  24 2019, 18:13:23) 
 [Clang 10.0.1 (clang-1001.0.46.4)] on darwin
 Type "help", "copyright", "credits" or "license" for more information.
 >>> import cv2

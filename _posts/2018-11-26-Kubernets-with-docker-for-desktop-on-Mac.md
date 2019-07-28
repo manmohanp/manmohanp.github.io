@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Kubernets with Docker for Desktop and Dashboard on Mac
+subtitle: 4 min read
 category: technology
 
 ---

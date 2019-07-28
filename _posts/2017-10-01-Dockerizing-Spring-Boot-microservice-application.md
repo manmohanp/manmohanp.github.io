@@ -1,8 +1,9 @@
 ---
 layout: post
 title: Dockerizing Spring Boot microservice application
-subtitle: - 2 minute read
+subtitle: 2 min read
 category: technology
+
 ---
 
 Assuming you have a [Spring Boot](https://projects.spring.io/spring-boot/) app built, tested and ready to be packaged in to a container for deployment.

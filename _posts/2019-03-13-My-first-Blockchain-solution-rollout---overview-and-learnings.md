@@ -3,6 +3,7 @@ layout: post
 title: My first Blockchain solution rollout - overview and learnings
 subtitle: 3 min read
 category: technology
+tags: [Blockchain, Kubernetes, Cloud, CouchDB, Hyperledger, Telco, ServiceAssurance]
 
 ---
 

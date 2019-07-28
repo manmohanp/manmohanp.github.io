@@ -3,6 +3,7 @@ layout: post
 title: Dockerizing Spring Boot microservice application
 subtitle: 2 min read
 category: technology
+tags: [Docker, Microservice, SpringBoot, SpringCloud, SpringFramework]
 
 ---
 

@@ -3,6 +3,7 @@ layout: post
 title: Microservices architecture with Kubernets
 subtitle: 3 min read
 category: technology
+tags: [Kubernetes, Docker, Microservice, Discovery]
 
 ---
 

@@ -4,6 +4,7 @@ title: Deep Learning-based Real Time object detection with YOLO and OpenCV
 subtitle: 4 min read
 category: technology
 hide: true
+tags: [AI, ArtificialIntelligence, OpenCV, Yolo, DNN, NeuralNetwork, ObjectDetection]
 
 ---
 

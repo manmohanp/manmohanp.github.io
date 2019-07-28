@@ -6,7 +6,8 @@ category: technology
 
 ---
 
-![Blockchain Rollout](https://manmohanp.github.io/assets/img/blockchain-hitesh-choudhary-JNxTZzpHmsI-unsplash.jpg)
+<img src="https://manmohanp.github.io/assets/img/blockchain-hitesh-choudhary-JNxTZzpHmsI-unsplash.jpg" alt="Blockchain" width="400" height="250"/>
+
 First of all, it was great to see one of my initial concept and solution going live on blockchain. It was quite a journey to see from building the concept with initial PoC to finally seeing it through to production. Great teamwork to implement something new and challenging.
 
 The business scenario was to build a service assurance system for telco with the ability to extend it for much wider scenarios like revenue assurance, fraud, and so on. And we took the initial phase of the platform to live that provides the base and an MVP for revenue assurance & operations optimisation for certain service asset.

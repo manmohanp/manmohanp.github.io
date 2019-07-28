@@ -9,7 +9,7 @@ category: technology
 
 There is a lot has to happen for mass adaption, many platforms, many promises especially in the enterprise domains and day-to-day applications. Some simple definitions of what these core techs are and what they bring.
 
-<img src="https://manmohanp.github.io/assets/img/blockchain-and-others.png" alt="Blockchain" width="200" height="200"/>
+<img src="https://manmohanp.github.io/assets/img/blockchain-and-others.png" alt="Blockchain"/>
 
 **Blockchain**
 

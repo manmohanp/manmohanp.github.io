@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Dockerizing Spring Boot microservice application
+subtitle: - 2 minute read
 category: technology
 ---
 

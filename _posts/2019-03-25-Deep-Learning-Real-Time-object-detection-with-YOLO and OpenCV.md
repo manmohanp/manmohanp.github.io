@@ -8,7 +8,7 @@ tags: [AI, ArtificialIntelligence, OpenCV, Yolo, DNN, NeuralNetwork, ObjectDetec
 
 ---
 
-<img src="https://manmohanp.github.io/assets/img/opencv.png" alt="OpenCV" width="150" height="150"/> <img src="https://manmohanp.github.io/assets/img/yolo.png" alt="OpenCV" width="150" height="150"/>
+<img src="https://manmohanp.github.io/assets/img/opencv.png" alt="OpenCV" width="300" height="200"/> <img src="https://manmohanp.github.io/assets/img/yolo.png" alt="OpenCV" width="300" height="200"/>
 
 **You only look once** ([YOLO](https://pjreddie.com/darknet/yolo/)) is a state-of-the-art, real-time object detection system.
 
@@ -61,4 +61,10 @@ Create a project directory e.g. yolo-realtime-object-detection and download the 
 
 ### Object detection
 
-To be updated
+Here is an example of the python code [yolo-realtime-object-detection](https://github.com/manmohanp/machineintelligence/tree/master/yolo-realtime-object-detection)
+
+```bash
+(cv) $ python detect_object.py
+```
+
+This should initiate computer webcam and detect objects.

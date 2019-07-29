@@ -1,10 +1,11 @@
 ---
+
 layout: post
-title: Deep Learning-based Real Time object detection with YOLO and OpenCV
+title: Deep learning based realtime object detection with YOLO and OpenCV
 subtitle: 4 min read
 category: technology
 hide: true
-tags: [AI, ArtificialIntelligence, OpenCV, Yolo, DNN, NeuralNetwork, ObjectDetection, ComputerVision]
+tags: [AI, ArtificialIntelligence, OpenCV, Yolo, DNN, NeuralNetwork, ObjectDetection, ComputerVision, DeepLearning]
 
 ---
 
@@ -61,6 +62,16 @@ Create a project directory e.g. yolo-realtime-object-detection and download the 
 
 ## Object Detection
 
+Initialise OpenCV/DNN with Darknet with COCO dataset:
+
+```
+net = cv.dnn.readNetFromDarknet("yolov3.cfg", "yolov3.weights")
+net.setPreferableBackend(cv.dnn.DNN_BACKEND_OPENCV)
+net.setPreferableTarget(cv.dnn.DNN_TARGET_CPU)
+```
+
+Initialise video stream:
+
 ```python
 # create window and start video stream to capture images
 cv.namedWindow(windowName, cv.WINDOW_NORMAL)
@@ -68,24 +79,26 @@ vs = VideoStream(src=0).start()
 cv.resizeWindow(windowName, 800, 600)
 ```
 
+Capture and process video stream (images), pass through DNN and filter objects based on confident level:
+
 ```python
-		# grab the frame from video stream
-    frame = vs.read()
+# grab the frame from video stream
+frame = vs.read()
 
-    # create blob from frame.
-    blob = cv.dnn.blobFromImage(frame, 1/255, (inputWidth, inputHeight), [0,0,0], 1, crop=False)
+# create blob from frame.
+blob = cv.dnn.blobFromImage(frame, 1/255, (inputWidth, inputHeight), [0,0,0], 1, crop=False)
 
-    # set input to the network
-    net.setInput(blob)
+# set input to the network
+net.setInput(blob)
 
-    # forward pass to get output of the output layers
-    outs = net.forward(getLayerNames(net))
-    
-    # process output
-    processOutput(frame, outs)
-    
-    # show output
-    cv.imshow(windowName, frame)
+# forward pass to get output of the output layers
+outs = net.forward(getLayerNames(net))
+
+# process output
+processOutput(frame, outs)
+
+# show output
+cv.imshow(windowName, frame)
 ```
 
 Recently added this on Git, here is the python code [yolo-realtime-object-detection](https://github.com/manmohanp/machineintelligence/tree/master/yolo-realtime-object-detection)
@@ -98,4 +111,8 @@ This should initiate your native camera and detect objects.
 
 Here is an output;
 
-![demo](/Users/manamohanpanda/Downloads/ezgif.com-crop.gif)
+![demo](https://manmohanp.github.io/assets/img/object-detection-screengrab.gif)
+
+Thats it!! This can detect 80 objects that are in COCO dataset.
+
+Next is to add custom objects for detection.

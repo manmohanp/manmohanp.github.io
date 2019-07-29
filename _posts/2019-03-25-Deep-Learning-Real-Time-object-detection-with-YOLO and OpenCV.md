@@ -8,7 +8,7 @@ tags: [AI, ArtificialIntelligence, OpenCV, Yolo, DNN, NeuralNetwork, ObjectDetec
 
 ---
 
-<img src="https://manmohanp.github.io/assets/img/opencv.png" alt="OpenCV" width="300" height="200"/> <img src="https://manmohanp.github.io/assets/img/yolo.png" alt="OpenCV" width="300" height="200"/>
+<img src="https://manmohanp.github.io/assets/img/opencv.png" alt="OpenCV" width="300" height="250"/> <img src="https://manmohanp.github.io/assets/img/yolo.png" alt="OpenCV" width="300" height="250"/>
 
 **You only look once** ([YOLO](https://pjreddie.com/darknet/yolo/)) is a state-of-the-art, real-time object detection system.
 
@@ -22,11 +22,11 @@ Object detector is a combination of **object locator** and **object recognizer**
 
 We will use OpenCV for this, especially DNN, Yolov3, [Darknet](https://pjreddie.com/darknet/). And since we are going to Python OpenCV provides a good port for Darknet.
 
-I am using Python3 though have earlier have used OpenCV with Python2 versions.
+I am using Python3 though have earlier have used OpenCV with Python2 versions as well and it just works fine.
 
 ## Preparation/Setup
 
-### OpenCV
+### Install OpenCV
 
 Good intro to OpenCV there on https://docs.opencv.org/master/d9/df8/tutorial_root.html
 
@@ -51,15 +51,15 @@ Type "help", "copyright", "credits" or "license" for more information.
 
 ### Download Pre-trained Models
 
-Create a project directory e.g. yolo-realtime-object-detection and download the following files to the directory.
+Create a project directory e.g. yolo-realtime-object-detection and download the following files to yolo-realtime-object-detection/model directory (or whatever name you prefer).
 
-- Pre-trained network’s weights (this is ~250mb in size). yolov3.weights - [https://pjreddie.com/media/files/yolov3.weights](https://pjreddie.com/media/files/yolov3.weights)
+>  Pre-trained network’s weights (this is ~250mb in size). yolov3.weights - [https://pjreddie.com/media/files/yolov3.weights](https://pjreddie.com/media/files/yolov3.weights)
 
-- Network configuration. yolov3.cfg - [https://github.com/pjreddie/darknet/blob/master/cfg/yolov3.cfg?raw=true](https://github.com/pjreddie/darknet/blob/master/cfg/yolov3.cfg?raw=true)
+> Network configuration. yolov3.cfg - [https://github.com/pjreddie/darknet/blob/master/cfg/yolov3.cfg?raw=true](https://github.com/pjreddie/darknet/blob/master/cfg/yolov3.cfg?raw=true)
 
-- Names from COCO dataset. coco.names - [https://github.com/pjreddie/darknet/blob/master/data/coco.names?raw=true](https://github.com/pjreddie/darknet/blob/master/data/coco.names?raw=true)
+> Names from COCO dataset. coco.names - [https://github.com/pjreddie/darknet/blob/master/data/coco.names?raw=true](https://github.com/pjreddie/darknet/blob/master/data/coco.names?raw=true)
 
-### Object detection
+## Object Detection
 
 Here is an example of the python code [yolo-realtime-object-detection](https://github.com/manmohanp/machineintelligence/tree/master/yolo-realtime-object-detection)
 
@@ -67,4 +67,8 @@ Here is an example of the python code [yolo-realtime-object-detection](https://g
 (cv) $ python detect_object.py
 ```
 
-This should initiate computer webcam and detect objects.
+This should initiate your native camera and detect objects.
+
+Here is an output;
+
+![demo](/Users/manamohanpanda/Downloads/ezgif.com-crop.gif)

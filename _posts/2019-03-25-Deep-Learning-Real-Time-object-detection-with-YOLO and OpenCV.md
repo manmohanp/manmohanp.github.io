@@ -61,7 +61,34 @@ Create a project directory e.g. yolo-realtime-object-detection and download the 
 
 ## Object Detection
 
-Here is an example of the python code [yolo-realtime-object-detection](https://github.com/manmohanp/machineintelligence/tree/master/yolo-realtime-object-detection)
+```python
+# create window and start video stream to capture images
+cv.namedWindow(windowName, cv.WINDOW_NORMAL)
+vs = VideoStream(src=0).start()
+cv.resizeWindow(windowName, 800, 600)
+```
+
+```python
+		# grab the frame from video stream
+    frame = vs.read()
+
+    # create blob from frame.
+    blob = cv.dnn.blobFromImage(frame, 1/255, (inputWidth, inputHeight), [0,0,0], 1, crop=False)
+
+    # set input to the network
+    net.setInput(blob)
+
+    # forward pass to get output of the output layers
+    outs = net.forward(getLayerNames(net))
+    
+    # process output
+    processOutput(frame, outs)
+    
+    # show output
+    cv.imshow(windowName, frame)
+```
+
+Recently added this on Git, here is the python code [yolo-realtime-object-detection](https://github.com/manmohanp/machineintelligence/tree/master/yolo-realtime-object-detection)
 
 ```bash
 (cv) $ python detect_object.py

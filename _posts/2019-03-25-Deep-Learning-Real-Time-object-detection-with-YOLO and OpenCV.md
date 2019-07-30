@@ -101,7 +101,7 @@ processOutput(frame, outs)
 cv.imshow(windowName, frame)
 ```
 
-Recently added this on Git, here is my python code for yolo-realtime-object-detection [https://github.com/manmohanp/machineintelligence/tree/master/yolo-realtime-object-detection](https://github.com/manmohanp/machineintelligence/tree/master/yolo-realtime-object-detection)
+Recently I've added code on Git, here is my python code for yolo-realtime-object-detection [https://github.com/manmohanp/machineintelligence/tree/master/yolo-realtime-object-detection](https://github.com/manmohanp/machineintelligence/tree/master/yolo-realtime-object-detection)
 
 ```bash
 (cv) $ python detect_object.py

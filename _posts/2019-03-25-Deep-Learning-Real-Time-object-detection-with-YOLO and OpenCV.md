@@ -50,6 +50,8 @@ Type "help", "copyright", "credits" or "license" for more information.
 >>> 
 ```
 
+I'm also using a great utility by [Adrian Rosebrock](https://www.pyimagesearch.com/author/adrian/) called **imutils** that has many very useful OpenCV utilities.
+
 ### Download Pre-trained Models
 
 Create a project directory e.g. yolo-realtime-object-detection and download the following files to yolo-realtime-object-detection/model directory (or whatever name you prefer).
@@ -111,7 +113,7 @@ This should initiate your native camera and detect objects.
 
 Here is an output;
 
-![demo](https://manmohanp.github.io/assets/img/object-detection-screengrab.gif)
+![demo](https://manmohanp.github.io/assets/img/obj_detection_4.png)(https://manmohanp.github.io/assets/img/obj_detection_4.mp4)
 
 Thats it!! This can detect 80 objects that are in COCO dataset.
 

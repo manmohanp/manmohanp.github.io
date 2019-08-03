@@ -113,7 +113,7 @@ This should initiate your native camera and detect objects.
 
 Here is an output;
 
-![demo](https://manmohanp.github.io/assets/img/obj_detection_4.png)(https://manmohanp.github.io/assets/img/obj_detection_4.mp4)
+<iframe width="560" height="315" src="https://www.youtube.com/embed/QgIbjEgRiZ8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 Thats it!! This can detect 80 objects that are in COCO dataset.
 

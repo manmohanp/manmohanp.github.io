@@ -17,11 +17,11 @@ As per official Yolo site:
 
 "Our model has several advantages over classifier-based systems. It looks at the whole image at test time so its predictions are informed by global context in the image. It also makes predictions with a single network evaluation unlike systems like [R-CNN](https://github.com/rbgirshick/rcnn) which require thousands for a single image. This makes it extremely fast, more than 1000x faster than R-CNN and 100x faster than [Fast R-CNN](https://github.com/rbgirshick/fast-rcnn). See our [paper](https://pjreddie.com/media/files/papers/YOLOv3.pdf) for more details on the full system."
 
-Object detector is a combination of **object locator** and **object recognizer** and Yolo does this by runing forward the whole image only once through the deep nural network ([DNN](https://papers.nips.cc/paper/5207-deep-neural-networks-for-object-detection.pdf)).
+Object detector is a combination of **object locator** and **object recognizer** and Yolo does this by runing forward the whole image only once through the deep neural network ([DNN](https://papers.nips.cc/paper/5207-deep-neural-networks-for-object-detection.pdf)).
 
 ## Realtime Object Detection
 
-We will use OpenCV for this, especially DNN, Yolov3, [Darknet](https://pjreddie.com/darknet/). And since we are going to Python OpenCV provides a good port for Darknet.
+We will use OpenCV for this, especially DNN, Yolov3, [Darknet](https://pjreddie.com/darknet/). And since we are going to use Python, OpenCV provides a good port for Darknet.
 
 I am using Python3 though have earlier have used OpenCV with Python2 versions as well and it just works fine.
 
@@ -31,7 +31,7 @@ I am using Python3 though have earlier have used OpenCV with Python2 versions as
 
 Good intro to OpenCV there on https://docs.opencv.org/master/d9/df8/tutorial_root.html
 
-[Adrian Rosebrock](https://www.pyimagesearch.com/author/adrian/) published a detailed step by step guide on his blog [pip install opencv](https://www.pyimagesearch.com/2018/09/19/pip-install-opencv/)
+[Adrian Rosebrock](https://www.pyimagesearch.com/author/adrian/) have published a detailed step by step guide on his blog [pip install opencv](https://www.pyimagesearch.com/2018/09/19/pip-install-opencv/)
 
 Once you have installed Python and OpenCV, you should see below;
 
@@ -103,7 +103,7 @@ processOutput(frame, outs)
 cv.imshow(windowName, frame)
 ```
 
-Recently added this on Git, here is the python code [yolo-realtime-object-detection](https://github.com/manmohanp/machineintelligence/tree/master/yolo-realtime-object-detection)
+Recently I've added code on Git, here is my python code for yolo-realtime-object-detection [https://github.com/manmohanp/machineintelligence/tree/master/yolo-realtime-object-detection](https://github.com/manmohanp/machineintelligence/tree/master/yolo-realtime-object-detection)
 
 ```bash
 (cv) $ python detect_object.py

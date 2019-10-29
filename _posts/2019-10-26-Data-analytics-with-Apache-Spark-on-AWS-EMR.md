@@ -1,4 +1,3 @@
-```
 ---
 
 layout: post
@@ -9,7 +8,6 @@ hide: true
 tags: [Data Analytics, Apache Spark, Spark, AWS, EMR, Big Data]
 
 ---
-```
 
 A simple demonstration of **Apach Spark** for data analysis running on **AWS EMR (Elastic Map Reduce)** cluster setup. I'm using pyspark but its very similar to Spark scala or Java (I did it on both Python and Java but for this writeup I am using Python)
 

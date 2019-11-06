@@ -60,6 +60,7 @@ Then once you hit Create cluster it should then start, bootstrap any custom acti
 
 **CLI command to create EMR Cluster**
 
+```shell
 aws emr create-cluster --name "Spark cluster for uk house data analysis" \
     --release-label emr-5.24.1 \
     --applications Name=Spark \
@@ -71,7 +72,8 @@ aws emr create-cluster --name "Spark cluster for uk house data analysis" \
     --steps Type=Spark,Name="Spark job",ActionOnFailure=CONTINUE,Args=[--deploy-mode,cluster,--master,yarn,s3://<bucket_name>/analysis_job.py] \
     --use-default-roles \
     --auto-terminate
-    
+```
+
 **Running Job with JupyterLab notebook**
 
 From the left side panel create a JupyterHub notebook and link to the newly created cluster.

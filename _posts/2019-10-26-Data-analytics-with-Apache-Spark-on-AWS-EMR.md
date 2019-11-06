@@ -71,14 +71,20 @@ aws emr create-cluster --name "Spark cluster for uk house data analysis" \
     --steps Type=Spark,Name="Spark job",ActionOnFailure=CONTINUE,Args=[--deploy-mode,cluster,--master,yarn,s3://<bucket_name>/analysis_job.py] \
     --use-default-roles \
     --auto-terminate
+    
+**Running Job with JupyterLab notebook**
+
+From the left side panel create a JupyterHub notebook and link to the newly created cluster.
 
 [Jupyter notebook](https://github.com/manmohanp/machineintelligence/blob/master/uklranalytics/ukhousedata.ipynb)
 
 Then run job, and you can see status of the progress - 
 ![Spark Job status ](https://manmohanp.github.io/assets/img/Sparkjob_status.png)
 
+**EMR Cluster Stats**
+
 And once the job is fully complete you can also view EMR cluster stats -
-![EMR Cluster status ](https://manmohanp.github.io/assets/img/emr-stats.png)
+![EMR Cluster stats ](https://manmohanp.github.io/assets/img/emr-stats.png)
 
 I had about 24 years of data of about 24 million records (4.3 GB) data.
 

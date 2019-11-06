@@ -94,3 +94,6 @@ And once the job is fully complete you can also view EMR cluster stats -
 
 I had about 24 years of data of about 24 million records (4.3 GB) data.
 
+**Output - graph based on analysed data**
+
+![Top sort after districts in London, UK between 1995-2018](https://github.com/manmohanp/manmohanp.github.io/blob/master/assets/img/Top%20sort%20after%20districts%20in%20London%20since%201995%20till%202018.gif)

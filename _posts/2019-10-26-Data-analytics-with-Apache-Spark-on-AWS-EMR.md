@@ -83,6 +83,8 @@ From the left side panel create a JupyterHub notebook and link to the newly crea
 Then run job, and you can see status of the progress - 
 ![Spark Job status ](https://manmohanp.github.io/assets/img/Sparkjob_status.png)
 
+Example code for data processing and some graph building - https://github.com/manmohanp/machineintelligence/tree/master/uklranalytics
+
 **EMR Cluster Stats**
 
 And once the job is fully complete you can also view EMR cluster stats -
@@ -91,3 +93,5 @@ And once the job is fully complete you can also view EMR cluster stats -
 I had about 24 years of data of about 24 million records (4.3 GB) data.
 
 (in my case it processed 24 years of house data of about 24 million records
+
+Some sample

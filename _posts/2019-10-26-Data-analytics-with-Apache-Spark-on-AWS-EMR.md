@@ -81,6 +81,7 @@ From the left side panel create a JupyterHub notebook and link to the newly crea
 [Jupyter notebook](https://github.com/manmohanp/machineintelligence/blob/master/uklranalytics/ukhousedata.ipynb)
 
 Then run job, and you can see status of the progress - 
+
 ![Spark Job status ](https://manmohanp.github.io/assets/img/Sparkjob_status.png)
 
 Example code for data processing and some graph building - https://github.com/manmohanp/machineintelligence/tree/master/uklranalytics
@@ -88,10 +89,8 @@ Example code for data processing and some graph building - https://github.com/ma
 **EMR Cluster Stats**
 
 And once the job is fully complete you can also view EMR cluster stats -
+
 ![EMR Cluster stats ](https://manmohanp.github.io/assets/img/emr-stats.png)
 
 I had about 24 years of data of about 24 million records (4.3 GB) data.
 
-(in my case it processed 24 years of house data of about 24 million records
-
-Some sample

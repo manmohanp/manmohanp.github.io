@@ -96,4 +96,4 @@ I had about 24 years of data of about 24 million records (4.3 GB) data.
 
 **Output - graph based on analysed data**
 
-![Top sort after districts in London, UK between 1995-2018](https://manmohanp.github.io/assets/img/Top%20sort%20after%20districts%20in%20London%20since%201995%20till%202018.gif)
+![Top sort after districts in London, UK between 1995-2018](https://manmohanp.github.io/assets/img/Top_sort_after_districts_in_London_since_1995_till_2018.mp4)

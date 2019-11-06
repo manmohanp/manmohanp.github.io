@@ -58,3 +58,28 @@ Then once you hit Create cluster it should then start, bootstrap any custom acti
 
 ![emr-cluster-ready](https://manmohanp.github.io/assets/img/emr-cluster-ready.png)
 
+**CLI command to create EMR Cluster**
+
+aws emr create-cluster --name "Spark cluster for uk house data analysis" \
+    --release-label emr-5.24.1 \
+    --applications Name=Spark \
+    --log-uri s3://<bucket_name>/logs/ \
+    --ec2-attributes KeyName=emr-key \
+    --instance-type m5.xlarge \
+    --instance-count 3 \
+    --bootstrap-actions Path=s3://<bucket_name>//config/emr_bootstrap.sh \
+    --steps Type=Spark,Name="Spark job",ActionOnFailure=CONTINUE,Args=[--deploy-mode,cluster,--master,yarn,s3://<bucket_name>/analysis_job.py] \
+    --use-default-roles \
+    --auto-terminate
+
+[Jupyter notebook](https://github.com/manmohanp/machineintelligence/blob/master/uklranalytics/ukhousedata.ipynb)
+
+Then run job, and you can see status of the progress - 
+![Spark Job status ](https://manmohanp.github.io/assets/img/Sparkjob_status.png)
+
+And once the job is fully complete you can also view EMR cluster stats -
+![EMR Cluster status ](https://manmohanp.github.io/assets/img/emr-stats.png)
+
+I had about 24 years of data of about 24 million records (4.3 GB) data.
+
+(in my case it processed 24 years of house data of about 24 million records

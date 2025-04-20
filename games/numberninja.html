@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Number Ninja 🥷</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f3f4f6;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+    .container {
+      position: relative;
+      background: white;
+      padding: 2rem;
+      border-radius: 1rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      max-width: 400px;
+      width: 100%;
+    }
+    .top-buttons {
+      /* position: fixed; */
+      top: 1rem;
+      right: 1rem;
+      display: flex;
+      gap: 0.5rem;
+      z-index: 1100;
+    }
+    .top-buttons button {
+      background: none;
+      border: none;
+      font-size: 1rem;
+      cursor: pointer;
+      color: #6b7280;
+    }
+    button:hover {
+      background-color: #059669;
+      color: white;
+    }
+    h1 {
+      color: #10b981;
+      text-align: center;
+      margin-bottom: 1rem;
+      font-size: 1.5rem;
+    }
+    input, select, button {
+      width: 100%;
+      padding: 0.75rem;
+      margin-bottom: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 0.5rem;
+      font-size: 1rem;
+    }
+    button {
+      background-color: #10b981;
+      color: white;
+      border: none;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    button:hover {
+      background-color: #059669;
+    }
+    .question {
+      font-size: 1.25rem;
+      text-align: center;
+      margin: 1rem 0;
+      font-weight: bold;
+    }
+    #result {
+      text-align: center;
+      font-weight: bold;
+      color: #ef4444;
+    }
+    #score, #timer, #highScore {
+      text-align: center;
+      margin-top: 0.5rem;
+      font-size: 1.1rem;
+      color: #374151;
+    }
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0,0,0,0.5);
+      justify-content: center;
+      align-items: center;
+    }
+    .modal-content {
+      background: white;
+      padding: 2rem;
+      border-radius: 1rem;
+      width: 90%;
+      max-width: 400px;
+    }
+    .modal-content label {
+      margin-top: 1rem;
+      font-weight: 600;
+      display: block;
+    }
+    .modal-content button {
+      margin-top: 1rem;
+    }
+    .numpad {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.5rem;
+      margin-top: 1rem;
+    }
+    .numpad button {
+      width: 100%;
+      padding: 0.75rem;
+      font-size: 1.25rem;
+      background-color: #e5e7eb;
+      color: #111827;
+      border: 1px solid #d1d5db;
+    }
+    .numpad button:active {
+      background-color: #d1d5db;
+    }
+    .action-buttons {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.5rem;
+      margin-top: 1rem;
+    }
+    .action-buttons-secondary {
+      background-color: #919497;
+      color: #f2f2f4;
+      border: 1px solid #d1d5db;
+    }
+
+    @media (max-width: 480px) {
+      .container {
+        padding: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Number Ninja 🥷</h1>
+    <div>
+      <p>Answer as many questions as you can before time runs out!</p>
+      <p>Choose your settings and start the game!</p>
+    </div>
+    
+    <div class="top-buttons">
+      <button onclick="startGame()" title="Start Game">▶️ Start</button>
+      <button onclick="abortGame()" title="Abort Game">⏹️ Abort</button>
+      <button id="settingsToggle" onclick="toggleSettings()" title="Settings">⚙️ Settings</button>
+    </div>
+    <div id="timer">Time: 60</div>
+    <div class="question" id="questionArea"></div>
+    <input type="text" id="userAnswer" placeholder="Your answer here" onkeydown="handleKeyPress(event)">
+    <div id="result"></div>
+    <div class="numpad">
+      <button onclick="appendNumpad('1')">1</button>
+      <button onclick="appendNumpad('2')">2</button>
+      <button onclick="appendNumpad('3')">3</button>
+      <button onclick="appendNumpad('4')">4</button>
+      <button onclick="appendNumpad('5')">5</button>
+      <button onclick="appendNumpad('6')">6</button>
+      <button onclick="appendNumpad('7')">7</button>
+      <button onclick="appendNumpad('8')">8</button>
+      <button onclick="appendNumpad('9')">9</button>
+      <button onclick="appendNumpad('0')">0</button>
+      <button onclick="appendNumpad('.')">.</button>
+      <button onclick="appendNumpad('-')">-</button>
+    </div>
+    <div class="action-buttons">
+      <button onclick="checkAnswer()">Submit Answer</button>
+      <button onclick="clearAnswer()" class="action-buttons-secondary">⬅️ Clear</button>
+    </div>
+    
+    <div id="score">Score: 0</div>
+    <div id="highScore">High Score: 0</div>
+    <button onclick="localStorage.removeItem('ninja.highScore'); location.reload();" style="margin-top: 1rem; background-color: #ef4444;">Clear High Score</button>
+  </div>
+
+  <div class="modal" id="settingsModal">
+    <div class="modal-content">
+      <label for="numLength1">First Number Length</label>
+      <input type="number" id="numLength1" min="1" max="5" value="2">
+
+      <label for="numLength2">Second Number Length</label>
+      <input type="number" id="numLength2" min="1" max="5" value="2">
+
+      <label for="allowDecimals">Allow Decimals in Division?</label>
+      <select id="allowDecimals">
+        <option value="no">No</option>
+        <option value="yes">Yes</option>
+      </select>
+
+      <label for="difficultyLevel">Difficulty</label>
+      <select id="difficultyLevel">
+        <option value="easy">Easy</option>
+        <option value="medium" selected>Medium</option>
+        <option value="hard">Hard</option>
+      </select>
+
+      <label>Select Operations</label>
+      <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+        <label><input type="checkbox" id="opAdd" checked> ➕</label>
+        <label><input type="checkbox" id="opSubtract" checked> ➖</label>
+        <label><input type="checkbox" id="opMultiply" checked> ✖️</label>
+        <label><input type="checkbox" id="opDivide" checked> ➗</label>
+      </div>
+
+      <label for="timeLimit">Time Limit</label>
+      <div style="display: flex; gap: 1rem;">
+        <select id="timeLimitSelect" onchange="setTimeLimit(this.value, event)">
+          <option value="30">30s</option>
+          <option value="60" selected>60s</option>
+          <option value="120">120s</option>
+        </select>
+      </div>
+
+      <button onclick="toggleSettings()">Close</button>
+    </div>
+  </div>
+
+  <audio id="correctSound" src="https://actions.google.com/sounds/v1/cartoon/clang_and_wobble.ogg"></audio>
+  <audio id="wrongSound" src="https://actions.google.com/sounds/v1/cartoon/cartoon_boing.ogg"></audio>
+
+  <script>
+    let currentAnswer;
+    let score = 0;
+    let timeRemaining = 60;
+    let timer;
+    let highScore = localStorage.getItem('ninja.highScore') || 0;
+
+    document.getElementById('highScore').textContent = `High Score: ${highScore}`;
+
+    function startGame() {
+      score = 0;
+      document.getElementById('score').textContent = 'Score: 0';
+      document.getElementById('result').textContent = '';
+      document.getElementById('userAnswer').disabled = false;
+      document.getElementById('userAnswer').value = '';
+      document.getElementById('questionArea').textContent = '';
+      document.getElementById('timer').style.color = 'green';
+
+      // Get the selected time limit from the dropdown
+      const timeLimitSelect = document.getElementById('timeLimitSelect');
+      const selectedTimeLimit = parseInt(timeLimitSelect.value);
+      timeRemaining = selectedTimeLimit;
+      
+      // Get active time limit (from the buttons)
+      const activeTimeButton = document.querySelector('.modal button.active');
+
+      document.getElementById('timer').textContent = `Time: ${timeRemaining}`;
+      generateQuestion();
+      clearInterval(timer);
+      timer = setInterval(() => {
+        timeRemaining--;
+        document.getElementById('timer').textContent = `Time: ${timeRemaining}`;
+        if (timeRemaining <= 10) {
+          document.getElementById('timer').style.color = 'orange';
+        }
+        if (timeRemaining <= 0) {
+          clearInterval(timer);
+          endGame();
+        }
+      }, 1000);
+    }
+
+    function endGame() {
+      if (score > highScore) {
+        highScore = score;
+        localStorage.setItem('ninja.highScore', highScore);
+      }
+      document.getElementById('highScore').textContent = `High Score: ${highScore}`;
+      document.getElementById('result').textContent = `Game Over! Your score: ${score}`;
+      //disable submit button
+      document.getElementById('userAnswer').disabled = true;
+      document.getElementById('userAnswer').value = '';
+      document.getElementById('questionArea').textContent = '';
+      document.getElementById('timer').textContent = 'Time: 0';
+      document.getElementById('timer').style.color = 'red';
+    }
+
+    function abortGame() {
+      clearInterval(timer);
+      endGame();
+    }
+
+    function toggleSettings() {
+      const modal = document.getElementById('settingsModal');
+      modal.style.display = modal.style.display === 'flex' ? 'none' : 'flex';
+    }
+
+    function setTimeLimit(seconds, event) {
+      // document.querySelectorAll('#settingsModal button').forEach(button => button.classList.remove('active'));
+      // event.target.classList.add('active');
+      timeRemaining = parseInt(seconds);
+      document.getElementById('timer').textContent = `Time: ${timeRemaining}`;
+    }
+
+    function generateQuestion() {
+      const len1 = parseInt(document.getElementById('numLength1').value);
+      const len2 = parseInt(document.getElementById('numLength2').value);
+      const allowDecimals = document.getElementById('allowDecimals').value === 'yes';
+
+      const ops = [];
+      if (document.getElementById('opAdd').checked) ops.push('+');
+      if (document.getElementById('opSubtract').checked) ops.push('-');
+      if (document.getElementById('opMultiply').checked) ops.push('*');
+      if (document.getElementById('opDivide').checked) ops.push('/');
+
+      if (ops.length === 0) {
+        alert('Please select at least one operation.');
+        return;
+      }
+
+      const num1 = generateRandomNumber(len1);
+      const num2 = generateRandomNumber(len2);
+      const op = ops[Math.floor(Math.random() * ops.length)];
+
+      let question, answer;
+
+      switch(op) {
+        case '+':
+          question = `${num1} + ${num2}`;
+          answer = num1 + num2;
+          break;
+        case '-':
+          question = `${num1} - ${num2}`;
+          answer = num1 - num2;
+          break;
+        case '*':
+          question = `${num1} × ${num2}`;
+          answer = num1 * num2;
+          break;
+        case '/':
+          if (!allowDecimals) {
+            const dividend = num1 * num2;
+            question = `${dividend} ÷ ${num2}`;
+            answer = dividend / num2;
+          } else {
+            question = `${num1} ÷ ${num2}`;
+            answer = +(num1 / num2).toFixed(2);
+          }
+          break;
+      }
+
+      currentAnswer = answer;
+      document.getElementById('questionArea').textContent = question;
+    }
+
+    function generateRandomNumber(length) {
+      const min = Math.pow(10, length - 1);
+      const max = Math.pow(10, length) - 1;
+      return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+
+    function handleKeyPress(event) {
+      if (event.key === 'Enter') {
+        checkAnswer();
+      }
+    }
+
+    function appendNumpad(num) {
+      document.getElementById('userAnswer').value += num;
+    }
+
+    function clearAnswer() {
+      document.getElementById('userAnswer').value = '';
+    }
+
+    function checkAnswer() {
+      const userAnswer = parseFloat(document.getElementById('userAnswer').value);
+      if (userAnswer === currentAnswer) {
+        score++;
+        document.getElementById('score').textContent = `Score: ${score}`;
+        document.getElementById('result').textContent = 'Correct!';
+        document.getElementById('result').style.color = 'green';
+        document.getElementById('correctSound').play();
+      } else {
+        document.getElementById('result').textContent = `Wrong! The correct answer was: ${currentAnswer}`;
+        document.getElementById('result').style.color = 'red';
+        document.getElementById('wrongSound').play();
+      }
+      // Reset the input field
+      document.getElementById('userAnswer').value = '';
+      generateQuestion();
+    }
+  </script>
+</body>
+</html>

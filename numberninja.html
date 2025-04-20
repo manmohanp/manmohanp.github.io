@@ -253,6 +253,11 @@
       document.getElementById('userAnswer').value = '';
       document.getElementById('questionArea').textContent = '';
       document.getElementById('timer').style.color = 'green';
+
+      // Get the selected time limit from the dropdown
+      const timeLimitSelect = document.getElementById('timeLimitSelect');
+      const selectedTimeLimit = parseInt(timeLimitSelect.value);
+      timeRemaining = selectedTimeLimit;
       
       // Get active time limit (from the buttons)
       const activeTimeButton = document.querySelector('.modal button.active');

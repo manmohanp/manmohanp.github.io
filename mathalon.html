@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mathalon</title>
+  <title>Number Ninja 🥷</title>
   <style>
     * {
       box-sizing: border-box;
@@ -152,7 +152,12 @@
 <body>
 
   <div class="container">
-    <h1>Mathalon</h1>
+    <h1>Number Ninja 🥷</h1>
+    <div>
+      <p>Answer as many questions as you can before time runs out!</p>
+      <p>Choose your settings and start the game!</p>
+    </div>
+    
     <div class="top-buttons">
       <button onclick="startGame()" title="Start Game">▶️ Start</button>
       <button onclick="abortGame()" title="Abort Game">⏹️ Abort</button>
@@ -161,6 +166,7 @@
     <div id="timer">Time: 60</div>
     <div class="question" id="questionArea"></div>
     <input type="text" id="userAnswer" placeholder="Your answer here" onkeydown="handleKeyPress(event)">
+    <div id="result"></div>
     <div class="numpad">
       <button onclick="appendNumpad('1')">1</button>
       <button onclick="appendNumpad('2')">2</button>
@@ -177,11 +183,9 @@
     </div>
     <div class="action-buttons">
       <button onclick="checkAnswer()">Submit Answer</button>
-      <button onclick="clearAnswer()" class="action-buttons-secondary">Clear</button>
+      <button onclick="clearAnswer()" class="action-buttons-secondary">⬅️ Clear</button>
     </div>
     
-
-    <div id="result"></div>
     <div id="score">Score: 0</div>
     <div id="highScore">High Score: 0</div>
     <button onclick="localStorage.clear(); location.reload();" style="margin-top: 1rem; background-color: #ef4444;">Clear High Score</button>
@@ -218,9 +222,11 @@
 
       <label for="timeLimit">Time Limit</label>
       <div style="display: flex; gap: 1rem;">
-        <button type="button" onclick="setTimeLimit(30)">30s</button>
-        <button type="button" onclick="setTimeLimit(60)" class="active">60s</button>
-        <button type="button" onclick="setTimeLimit(120)">120s</button>
+        <select id="timeLimitSelect" onchange="setTimeLimit(this.value, event)">
+          <option value="30">30s</option>
+          <option value="60" selected>60s</option>
+          <option value="120">120s</option>
+        </select>
       </div>
 
       <button onclick="toggleSettings()">Close</button>
@@ -243,18 +249,23 @@
       score = 0;
       document.getElementById('score').textContent = 'Score: 0';
       document.getElementById('result').textContent = '';
+      document.getElementById('userAnswer').disabled = false;
+      document.getElementById('userAnswer').value = '';
+      document.getElementById('questionArea').textContent = '';
+      document.getElementById('timer').style.color = 'green';
       
       // Get active time limit (from the buttons)
       const activeTimeButton = document.querySelector('.modal button.active');
-      const timeLimit = activeTimeButton ? parseInt(activeTimeButton.textContent) : 60;
 
-      timeRemaining = timeLimit;
       document.getElementById('timer').textContent = `Time: ${timeRemaining}`;
       generateQuestion();
       clearInterval(timer);
       timer = setInterval(() => {
         timeRemaining--;
         document.getElementById('timer').textContent = `Time: ${timeRemaining}`;
+        if (timeRemaining <= 10) {
+          document.getElementById('timer').style.color = 'orange';
+        }
         if (timeRemaining <= 0) {
           clearInterval(timer);
           endGame();
@@ -269,6 +280,12 @@
       }
       document.getElementById('highScore').textContent = `High Score: ${highScore}`;
       document.getElementById('result').textContent = `Game Over! Your score: ${score}`;
+      //disable submit button
+      document.getElementById('userAnswer').disabled = true;
+      document.getElementById('userAnswer').value = '';
+      document.getElementById('questionArea').textContent = '';
+      document.getElementById('timer').textContent = 'Time: 0';
+      document.getElementById('timer').style.color = 'red';
     }
 
     function abortGame() {
@@ -281,10 +298,11 @@
       modal.style.display = modal.style.display === 'flex' ? 'none' : 'flex';
     }
 
-    function setTimeLimit(seconds) {
-      document.getElementById('timeLimit').value = seconds;
-      document.querySelectorAll('#settingsModal button').forEach(button => button.classList.remove('active'));
-      event.target.classList.add('active');
+    function setTimeLimit(seconds, event) {
+      // document.querySelectorAll('#settingsModal button').forEach(button => button.classList.remove('active'));
+      // event.target.classList.add('active');
+      timeRemaining = parseInt(seconds);
+      document.getElementById('timer').textContent = `Time: ${timeRemaining}`;
     }
 
     function generateQuestion() {
@@ -364,9 +382,11 @@
         score++;
         document.getElementById('score').textContent = `Score: ${score}`;
         document.getElementById('result').textContent = 'Correct!';
+        document.getElementById('result').style.color = 'green';
         document.getElementById('correctSound').play();
       } else {
         document.getElementById('result').textContent = `Wrong! The correct answer was: ${currentAnswer}`;
+        document.getElementById('result').style.color = 'red';
         document.getElementById('wrongSound').play();
       }
       // Reset the input field

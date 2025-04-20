@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mathalon - Home</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    h1 {
+      color: #000000;
+      text-align: center;
+      margin-bottom: 1rem;
+      font-size: 1.5rem;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f3f4f6;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+    .container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1rem;
+      padding: 2rem;
+      max-width: 1200px;
+      width: 100%;
+    }
+    .card {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 1rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+    }
+    .card h2 {
+      color: #547eea;
+      margin-bottom: 1rem;
+    }
+    .card p {
+      color: #6b7280;
+      margin-bottom: 1.5rem;
+    }
+    .card a {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      background-color: #547eea;
+      color: white;
+      text-decoration: none;
+      border-radius: 0.5rem;
+      transition: background 0.3s ease;
+    }
+    .card a:hover {
+      background-color: #3a66d4;
+    }
+  </style>
+</head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-3MTN163E1H"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-3MTN163E1H');
+</script>
+<body>
+  <div class="container">
+    <div class="card">
+      <h2>Number Ninja 🥷</h2>
+      <p>Challenge yourself with addition, subtraction, multipication and divisions.</p>
+      <a href="numberninja.html">Go to Number Ninja</a>
+    </div>
+    <div class="card">
+      <h2>Number Ninja Pro 🥷⚡️</h2>
+      <p>Challenge yourself with advanced math problems in Number Ninja Pro.</p>
+      <a href="numberninjapro.html">Go to Number Ninja Pro</a>
+    </div>
+    <div id="cookieConsent" style="display: none; position: fixed; bottom: 0; left: 0; width: 100%; background: #333; color: white; padding: 1rem; text-align: center; z-index: 1000;">
+        This website uses cookies to ensure you get the best experience. <a href="#" style="color: #4caf50;">Learn more</a>.
+        <button onclick="acceptCookies()" style="margin-left: 1rem; background: #4caf50; color: white; border: none; padding: 0.5rem 1rem; border-radius: 5px; cursor: pointer;">Got it!</button>
+    </div>
+  </div>
+  <script>
+    function acceptCookies() {
+      document.getElementById('cookieConsent').style.display = 'none';
+      localStorage.setItem('cookiesAccepted', 'true');
+    }
+
+    window.onload = function() {
+      if (!localStorage.getItem('cookiesAccepted')) {
+        document.getElementById('cookieConsent').style.display = 'block';
+      }
+    };
+  </script>
+</body>
+</html>

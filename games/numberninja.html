@@ -150,15 +150,6 @@
     }
   </style>
 </head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-3MTN163E1H"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-3MTN163E1H');
-</script>
 <body>
 
   <div class="container">
@@ -245,6 +236,11 @@
 
   <audio id="correctSound" src="https://actions.google.com/sounds/v1/cartoon/clang_and_wobble.ogg"></audio>
   <audio id="wrongSound" src="https://actions.google.com/sounds/v1/cartoon/cartoon_boing.ogg"></audio>
+
+  <div id="cookieConsent" style="display: none; position: fixed; bottom: 0; left: 0; width: 100%; background: #333; color: white; padding: 1rem; text-align: center; z-index: 1000;">
+    This website uses cookies to ensure you get the best experience. <a href="#" style="color: #4caf50;">Learn more</a>.
+    <button onclick="acceptCookies()" style="margin-left: 1rem; background: #4caf50; color: white; border: none; padding: 0.5rem 1rem; border-radius: 5px; cursor: pointer;">Got it!</button>
+  </div>
 
   <script>
     let currentAnswer;
@@ -408,6 +404,20 @@
       document.getElementById('userAnswer').value = '';
       generateQuestion();
     }
+
+    function checkCookieConsent() {
+      if (!localStorage.getItem('cookieConsent')) {
+        document.getElementById('cookieConsent').style.display = 'block';
+      }
+    }
+
+    function acceptCookies() {
+      localStorage.setItem('cookieConsent', 'true');
+      document.getElementById('cookieConsent').style.display = 'none';
+    }
+
+    window.onload = checkCookieConsent;    
+
   </script>
 </body>
 </html>

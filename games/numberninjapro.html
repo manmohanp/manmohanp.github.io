@@ -345,9 +345,9 @@
           answer = +(numerator / denominator).toFixed(2);
           break;
         case 'decimalToFraction':
-          const decimal = +(Math.random() * 2).toFixed(2);
-          question = `Convert ${decimal} to a fraction.`;
-          answer = decimalToFraction(decimal);
+          const decimalValue = +(Math.random() * 2).toFixed(2);
+          question = `Convert ${decimalValue} to a fraction.`;
+          answer = decimalToFraction(decimalValue);
           break;
         case 'percentage':
           const percentageBase = Math.floor(Math.random() * 100) + 1;
@@ -361,9 +361,9 @@
           answer = +(percentage / 100).toFixed(2);
           break;
         case 'decimalToPercentage':
-          const decimal = +(Math.random()).toFixed(2);
-          question = `Convert ${decimal} to a percentage.`;
-          answer = +(decimal * 100).toFixed(2);
+          const decimalPercentage = +(Math.random()).toFixed(2);
+          question = `Convert ${decimalPercentage} to a percentage.`;
+          answer = +(decimalPercentage * 100).toFixed(2);
           break;
       }
 

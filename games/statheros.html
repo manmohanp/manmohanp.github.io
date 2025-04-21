@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Stat Heroes: The Data Defenders</title>
+  <style>
+    h1 {
+      text-align: center;
+      margin-bottom: 1rem;
+      font-size: 1.5rem;
+    }
+    body {
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      background: #d0f0ff;
+      text-align: center;
+      padding: 20px;
+    }
+    .hero {
+      font-size: 1rem;
+      margin-top: 10px;
+    }
+    .question-box {
+      background: #fff;
+      border-radius: 15px;
+      padding: 20px;
+      margin: 20px auto;
+      max-width: 400px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+    input {
+      padding: 10px;
+      margin: 10px;
+      width: 100px;
+    }
+    .buttongroup {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+    }
+    button {
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      border: none;
+      color: white;
+      font-size: 1rem;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+    .result {
+      font-weight: bold;
+      margin-top: 15px;
+    }
+    #play-again {
+      display: none;
+      margin-top: 20px;
+    }
+    #timer {
+      font-size: 1.5rem;
+      margin-top: 20px;
+    }
+    .stats {
+      font-size: 1.2rem;
+      margin-top: 20px;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <a href="/" style="position: absolute; top: 1rem; right: 1rem;">Home</a>
+  <h1>📊 Stat Heroes: The Data Defenders</h1>
+  <p class="hero">👩‍🔬 Miss Median needs your help!</p>
+
+  <div class="buttongroup">
+    <button onclick="startGame('easy')">🟢 Easy (15 Questions)</button>
+    <button onclick="startGame('advanced')">🔴 Advanced (6 Questions)</button>
+  </div>
+
+  <div class="question-box">
+    <p id="question">Loading question...</p>
+    <input type="number" id="answer" placeholder="Your answer" />
+    <br />
+    <button onclick="checkAnswer()">Check Answer</button>
+    <p class="result" id="result"></p>
+    <button id="play-again" onclick="restartGame()">🔁 Play Again</button>
+  </div>
+
+  <div id="timer"></div>
+
+  <div id="stats" class="stats"></div>
+
+  <script>
+    let timerInterval;
+    let timeRemaining;
+    let timerRunning = false;
+    let questionCount = 0;
+    let currentQuestion = 0;
+    let correctAnswers = 0;
+    let minNum, maxNum, totalQuestions;
+
+    function startTimer() {
+      if (!timerRunning) {
+        timerRunning = true;
+        timerInterval = setInterval(() => {
+          if (timeRemaining <= 0) {
+            clearInterval(timerInterval);
+            document.getElementById("timer").innerText = "⏰ Time's up!";
+            endGame();
+          } else {
+            document.getElementById("timer").innerText = `⏱️ Time Remaining: ${timeRemaining}s`;
+            timeRemaining--;
+          }
+        }, 1000);
+      }
+    }
+
+    function getRandomNumbers(count) {
+      const nums = [];
+      for (let i = 0; i < count; i++) {
+        nums.push(Math.floor(Math.random() * (maxNum - minNum + 1)) + minNum);
+      }
+      return nums;
+    }
+
+    function calculateMean(nums) {
+      return Math.round(nums.reduce((a, b) => a + b, 0) / nums.length);
+    }
+
+    function calculateMedian(nums) {
+      const sorted = [...nums].sort((a, b) => a - b);
+      const mid = Math.floor(sorted.length / 2);
+      return sorted.length % 2 !== 0 ? sorted[mid] : Math.round((sorted[mid - 1] + sorted[mid]) / 2);
+    }
+
+    function calculateMode(nums) {
+      const freq = {};
+      let maxFreq = 0;
+      let mode = nums[0];
+      for (const num of nums) {
+        freq[num] = (freq[num] || 0) + 1;
+        if (freq[num] > maxFreq) {
+          maxFreq = freq[num];
+          mode = num;
+        }
+      }
+      return mode;
+    }
+
+    function calculateRange(nums) {
+      return Math.max(...nums) - Math.min(...nums);
+    }
+
+    const questionTypes = ["mean", "median", "mode", "range"];
+    let questions = [];
+
+    function generateQuestions() {
+      questions = [];
+      for (let i = 0; i < totalQuestions; i++) {
+        const type = questionTypes[Math.floor(Math.random() * questionTypes.length)];
+        const nums = getRandomNumbers(5);
+        let answer, text;
+
+        switch (type) {
+          case "mean":
+            answer = calculateMean(nums);
+            text = `Captain Mean has these numbers: ${nums.join(", ")}. What is the MEAN?`;
+            break;
+          case "median":
+            answer = calculateMedian(nums);
+            text = `Miss Median has these numbers: ${nums.join(", ")}. What is the MEDIAN?`;
+            break;
+          case "mode":
+            nums.push(nums[Math.floor(Math.random() * nums.length)]);
+            answer = calculateMode(nums);
+            text = `Major Mode sees these numbers: ${nums.join(", ")}. What is the MODE?`;
+            break;
+          case "range":
+            answer = calculateRange(nums);
+            text = `Ranger Range checks these numbers: ${nums.join(", ")}. What is the RANGE?`;
+            break;
+        }
+
+        questions.push({ type, numbers: nums, answer, text });
+      }
+    }
+
+    function loadQuestion() {
+      const q = questions[currentQuestion];
+      document.getElementById("question").innerText = q.text;
+      document.getElementById("answer").value = "";
+      document.getElementById("result").innerText = "";
+    }
+
+    function checkAnswer() {
+      const userAnswer = parseFloat(document.getElementById("answer").value);
+      const correct = questions[currentQuestion].answer;
+      const resultText = document.getElementById("result");
+
+      if (userAnswer === correct) {
+        resultText.innerText = "✅ Super work, Stat Hero!";
+        resultText.style.color = "green";
+        correctAnswers++;
+      } else {
+        resultText.innerText = `❌ Oops! Try again. The correct answer was ${correct}.`;
+        resultText.style.color = "red";
+      }
+
+      currentQuestion++;
+      if (currentQuestion < questions.length) {
+        setTimeout(loadQuestion, 2000);
+      } else {
+        setTimeout(() => {
+          endGame();
+        }, 2000);
+      }
+    }
+
+    function endGame() {
+      const timeTaken = 60 - timeRemaining;
+      document.getElementById("question").innerText = `🏁 You completed the mission!`;
+      document.getElementById("answer").style.display = "none";
+      document.querySelector("button").style.display = "none";
+      document.getElementById("play-again").style.display = "inline-block";
+      document.getElementById("timer").style.display = "none";
+
+      // Display stats
+      document.getElementById("stats").innerHTML = `
+        You got ${correctAnswers} out of ${questions.length} correct.<br />
+        Time taken: ${timeTaken} seconds.<br />
+      `;
+    }
+
+    function startGame(mode) {
+      if (mode === 'easy') {
+        minNum = 1;
+        maxNum = 20;
+        totalQuestions = 15;
+        timeRemaining = 60;
+      } else if (mode === 'advanced') {
+        minNum = 20;
+        maxNum = 100;
+        totalQuestions = 6;
+        timeRemaining = 120;
+      }
+
+      generateQuestions();
+      loadQuestion();
+      correctAnswers = 0;
+      currentQuestion = 0;
+      document.getElementById("timer").style.display = "inline-block";
+      document.getElementById("answer").style.display = "inline-block";
+      document.querySelector("button").style.display = "inline-block";
+      document.getElementById("play-again").style.display = "none";
+      document.getElementById("stats").innerHTML = '';
+      startTimer();
+    }
+
+    function restartGame() {
+      document.getElementById("answer").style.display = "inline-block";
+      document.querySelector("button").style.display = "inline-block";
+      document.getElementById("play-again").style.display = "none";
+      document.getElementById("timer").style.display = "inline-block";
+      timeRemaining = 60;
+      correctAnswers = 0;
+      currentQuestion = 0;
+      generateQuestions();
+      loadQuestion();
+      startTimer();
+    }
+  </script>
+</body>
+</html>
